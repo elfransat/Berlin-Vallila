@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.page {
+  width: 100%;
+  background-color: grey;
+  padding: 4rem 0;
+}
+.main-container {
+  width: 60%;
+  margin: 0 auto;
+  background-color: white;
+}
+/******************** Navigation bar *********************/
+nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+}
+
+nav h1 {
+  margin: 2rem;
+}
+
+/******************** End of navigation bar *********************/
+
+/******************** Blueprint image  and button styler *********************/
+.blueprints-container {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+.blueprints-container img {
+  width: 100%;
+}
+
+.blueprints-container .plus {
+  position: absolute;
+  left: 85%;
+  top: 75%;
+  padding: 1rem;
+}
+.blueprints-container .minus {
+  position: absolute;
+  left: 85%;
+  top: 86%;
+  padding: 1rem;
+}
+
+.drop-down-selector select {
+  color: green;
+  background-color: red;
+  padding: 8px 12px;
+  color: #333333;
+  background-color: #eeeeee;
+  border: 1px solid #eee;
+  border-radius: 2px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.drop-down-selector select:focus,
+.drop-down-selector select:hover {
+  outline: none;
+  border: 1px solid #bbbbbb;
+}
+.drop-down-selector option {
+  background: red;
+  color: green;
+}
+.drop-down-selector {
+  display: inline;
+  margin: 10px;
+}

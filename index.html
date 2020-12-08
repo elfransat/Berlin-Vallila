@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Berlin / Vallila</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <h1>Berlin / Vallila</h1>
+    </nav>
+    <div class="page">
+      <div class="main-container">
+        <form class="drop-down-selector">
+          <select
+            name="blueprints"
+            id="blueprint-selecter"
+            onchange="imgReset(), document.getElementById('blueprint-image').src = this.value"
+            onchange="imgReset()"
+          >
+            <option value="blueprints/Artboard 1.png" class="option1">
+              Ground floor, several users
+            </option>
+            <option value="blueprints/Artboard 2.png">
+              2nd floor, single user (735 m2)
+            </option>
+            <option value="blueprints/Artboard 3.png">
+              2nd floor, several users
+            </option>
+            <option value="blueprints/Artboard 4.png">
+              3rd floor, single user (2568 m2)
+            </option>
+            <option value="blueprints/Artboard 5.png">
+              3rd floor, several users
+            </option>
+            <option value="blueprints/Artboard 6.png">
+              Other floors, single user E25 (1218 m2)
+            </option>
+          </select>
+        </form>
+        <div class="blueprints-container">
+          <img
+            src="blueprints/Artboard 1.png"
+            alt="blueprints"
+            id="blueprint-image"
+          />
+          <button class="plus" id="plus">+</button>
+          <button class="minus" id="minus">–</button>
+        </div>
+      </div>
+    </div>
+    <script src="scripts.js"></script>
+    <script src="/node_modules/@panzoom/panzoom/dist/panzoom.js"></script>
+    <script>
+      const elem = document.getElementById("blueprint-image");
+
+      const panzoom = Panzoom(elem, {
+        maxScale: 5,
+        minScale: 1,
+        // ensures that panning is only allowed in the definied space, change to inside if larger area is needed //
+        contain: "outside",
+        cursor: "grab",
+        panOnlyWhenZoomed: "true",
+      });
+      panzoom.pan(10, 10);
+      panzoom.zoom(1, { animate: true });
+
+      // Panning and pinch zooming are bound automatically (unless disablePan is true).
+      // There are several available methods for zooming
+      // that can be bound on button clicks or mousewheel.
+      let plusSize = document.getElementsByClassName("plus");
+      let minusSize = document.getElementsByClassName("minus");
+
+      document.getElementById("plus").addEventListener("click", panzoom.zoomIn);
+      document
+        .getElementById("minus")
+        .addEventListener("click", panzoom.zoomOut);
+
+      // when selected image is changed resets the scale back to 1 //
+      let imgReset = () => {
+        let myImg = document.getElementById("blueprint-image");
+        currentScale = 1;
+        myImg.style.transform = `scale(${currentScale})`;
+        console.log(myImg);
+      };
+    </script>
+  </body>
+</html>
