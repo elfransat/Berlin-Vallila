@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Berlin / Vallila</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <nav>
@@ -17,7 +17,6 @@
             name="blueprints"
             id="blueprint-selecter"
             onchange="imgReset(), document.getElementById('blueprint-image').src = this.value"
-            onchange="imgReset()"
           >
             <option value="./blueprints/Artboard 1.png" class="option1">
               Ground floor, several users
@@ -50,8 +49,8 @@
         </div>
       </div>
     </div>
-    <script src="scripts.js"></script>
-    <script src="./node_modules/@panzoom/panzoom/dist/panzoom.js"></script>
+    <script src="./scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.panzoom/4.0.0/panzoom.min.js"></script>
     <script>
       const elem = document.getElementById("blueprint-image");
 
